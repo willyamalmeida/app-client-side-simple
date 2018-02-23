@@ -28,7 +28,7 @@
 
             <div class="row">
                 <div class="col">
-                    <table>
+                    <table name="grid">
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -48,8 +48,9 @@
     </div>
 
     <script src="../../assets/js/app.views.departament.index.js"></script>
+    <script src="../../assets/js/db.js"></script>
     <script>
-        new app.views.departament.index(document.getElementsByClassName("views-departament-index"));
+        new app.views.departament.index(document.querySelector(".views-departament-index"));
     </script>
 </body>
 </html>

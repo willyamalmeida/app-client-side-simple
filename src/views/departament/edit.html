@@ -14,9 +14,9 @@
         </header>    
         <section class="container views-departament-edit">     
             <nav>
-                <a href="index.html">Save</a>
-                <a href="index.html">Delete</a>
-                <a href="index.html">Cancel and Back</a>
+                <a href="index.html" name="save">Save</a>
+                <a href="index.html" name="delete">Delete</a>
+                <a href="index.html" name="cancel">Cancel and Back</a>
             </nav>
             
             <div class="functionality">Departament</label>
@@ -46,8 +46,9 @@
     </div>
 
     <script src="../../assets/js/app.views.departament.edit.js"></script>
+    <script src="../../assets/js/db.js"></script>
     <script>
-        new app.views.departament.edit(document.getElementsByClassName("views-departament-edit"));
+        new app.views.departament.edit(document.querySelector(".views-departament-edit"));
     </script>
 </body>
 </html>
