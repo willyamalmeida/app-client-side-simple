@@ -1,0 +1,1 @@
+app={views:{departament:{}}},app.views.departament.edit=function(t){if(!t)throw"Element undefined";this.$el=t,this.init()},app.views.departament.edit.prototype={init:function(){this.initEvents()},initEvents:function(){}};
