@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>app-client-side-simple - departament</title>
+    <title>app-client-side-simple - departament - edit</title>
     <link rel="stylesheet" href="../../assets/css/site.css" >
 </head>
 <body>    
@@ -12,32 +12,30 @@
         <header>
             <a href="../../index.html">My Company</a>
         </header>    
-        <section class="container views-departament-index">     
+        <section class="container views-departament-edit">     
             <nav>
-                <a href="edit.html">New</a>
+                <a href="index.html">Save</a>
+                <a href="index.html">Delete</a>
+                <a href="index.html">Cancel and Back</a>
             </nav>
+            
             <div class="functionality">Departament</label>
+            
             <div class="row">
                 <div class="col">
-                    <input type="text" name="filter">
+                    <label>Id</label>
                 </div>
                 <div class="col">
-                    <button name="search">Search</button>
+                    <input type="text" name="id">                    
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>                            
-                        </tbody>
-                    </table>
+                    <label>Description</label>
+                </div>
+                <div class="col">
+                    <input type="text" name="description">                    
                 </div>
             </div>
 
@@ -47,9 +45,9 @@
         </footer>
     </div>
 
-    <script src="../../assets/js/app.views.departament.index.js"></script>
+    <script src="../../assets/js/app.views.departament.edit.js"></script>
     <script>
-        new app.views.departament.index(document.getElementsByClassName("views-departament-index"));
+        new app.views.departament.edit(document.getElementsByClassName("views-departament-edit"));
     </script>
 </body>
 </html>
