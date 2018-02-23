@@ -1,0 +1,1 @@
+app={views:{employee:{}}},app.views.employee.index=function(e){if(!e)throw"Element undefined";this.$el=e,this.init()},app.views.employee.index.prototype={init:function(){this.initEvents()},initEvents:function(){}};
