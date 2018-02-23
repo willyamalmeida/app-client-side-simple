@@ -1,8 +1,4 @@
-app = {
-    views: {
-        home: {}
-    }
-};
+app = {};
 
 app.index = function($el) {
     if (!$el) {
@@ -14,23 +10,10 @@ app.index = function($el) {
 };
 
 app.index.prototype = {
-    init: function() {
-        this.$elHome = this.$el.parentElement.querySelector("header > a");               
-        this.$elContainer = this.$el.parentElement.querySelector(".container");
-
-        this.loadHome();
+    init: function() {        
         this.initEvents();
     },
 
-    loadHome: function() {
-        this.$elContainer.innerText = "Index";
-    },
-
     initEvents: function() {
-        let _this = this;
-
-        this.$elHome.addEventListener("click", function() {
-            _this.$elContainer.innerText = "Home";
-        });
     }
 }
