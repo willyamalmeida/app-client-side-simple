@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "app simple with html+css+js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"No test specified\" && exit 0",
     "dev": "grunt watch--",
     "build": "rimraf ./dist && grunt",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
