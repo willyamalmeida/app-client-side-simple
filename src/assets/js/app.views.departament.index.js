@@ -5,23 +5,23 @@ app.views.departament.index = function($el) {
     }
     
     this.$el = $el;
-    this.db = new db("departaments");
+    this.db = new Store("departaments");
 
     this.init();
 };
 
 app.views.departament.index.prototype = {
     init: function() {       
-        this.$elGrid = this.$el.parentElement.querySelector("[name='grid']");
+        this.$elGrid = this.$el.parentElement.querySelector("[name='grid']");    
         
         this.loadGrid();
         this.initEvents();
     },
 
     loadGrid: function() {
-        let elTBody = this.$elGrid.parentElement.querySelector("tbody");
+        var elTBody = this.$elGrid.parentElement.querySelector("tbody");
         
-        let tbody = this.db.get().reduce((row, departament) => {
+        var tbody = this.db.get().reduce(function(row, departament) {
             row = row.concat("<tr><td>".concat(departament.id).concat("</td><td>").concat(departament.description).concat("</td></tr>"));
             return row;
         }, "");
@@ -29,6 +29,12 @@ app.views.departament.index.prototype = {
         elTBody.innerHTML = tbody;
     },
 
-    initEvents: function() {        
+    initEvents: function() {   
+        this.$elGrid.querySelectorAll("tbody tr").forEach(function(row) {
+            row.addEventListener("click", function(e) { 
+                var id = e.target.parentElement.querySelector("td").innerText;
+                location = "edit.html?id=".concat(id);                
+            });  
+        });           
     }
 }

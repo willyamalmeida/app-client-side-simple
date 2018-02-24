@@ -6,17 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>app-client-side-simple - departament</title>
     <link rel="stylesheet" href="../../assets/css/site.css" >
+    <link rel="stylesheet" href="../../assets/css/painel.css" >
 </head>
 <body>    
-    <div id="app">
+    <div class="container">
         <header>
             <a href="../../index.html">My Company</a>
         </header>    
-        <section class="container views-departament-index">     
+        <section class="painel views-departament-index">     
             <nav>
-                <a href="edit.html">New</a>
+                <a href="edit.html?id=0">New</a>
             </nav>
-            <div class="functionality">Departament</label>
+
+            <div class="title-main">Departaments</div>
+            
             <div class="row">
                 <div class="col">
                     <input type="text" name="filter">
@@ -27,18 +30,22 @@
             </div>
 
             <div class="row">
-                <div class="col">
-                    <table name="grid">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>                            
-                        </tbody>
-                    </table>
-                </div>
+                <table name="grid">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>                        
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Total</th>
+                            <td>0</td>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
 
         </section>
@@ -48,7 +55,7 @@
     </div>
 
     <script src="../../assets/js/app.views.departament.index.js"></script>
-    <script src="../../assets/js/db.js"></script>
+    <script src="../../assets/js/store.js"></script>
     <script>
         new app.views.departament.index(document.querySelector(".views-departament-index"));
     </script>
