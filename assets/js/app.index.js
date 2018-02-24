@@ -1,1 +1,0 @@
-app={},app.index=function(i){if(!i)throw"Element undefined";this.$el=i,this.init()},app.index.prototype={init:function(){this.initEvents()},initEvents:function(){}};

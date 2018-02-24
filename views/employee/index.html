@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="../../assets/css/site.css" >
 </head>
 <body>    
-    <div id="app">
+    <div class="container">
         <header>
             <a href="../../index.html">My Company</a>
         </header>    
-        <section class="container views-employee-index">     
+        <section class="painel views-employee-index">     
             <h3>Employee</h3>
         </section>
         <footer>
@@ -22,7 +22,7 @@
 
     <script src="../../assets/js/app.views.employee.index.js"></script>
     <script>
-        new app.views.employee.index(document.getElementsByClassName("views-employee-index"));
+        new app.views.employee.index(document.querySelector(".views-employee-index"));
     </script>
 </body>
 </html>
