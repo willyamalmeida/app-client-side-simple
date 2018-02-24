@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>app-client-side-simple - employee - edit</title>
+    <link rel="stylesheet" href="../../assets/css/site.css" >
+    <link rel="stylesheet" href="../../assets/css/painel.css" >
+</head>
+<body>    
+    <div class="container">
+        <header>
+            <a href="../../index.html">My Company</a>
+        </header>    
+        <section class="painel views-employee-edit">     
+            <nav>
+                <a name="save">Save</a>
+                <a name="delete">Delete</a>
+                <a name="cancel">Cancel and Back</a>
+            </nav>
+            
+            <div class="title-main">Employee</div>
+            
+            <div class="row">
+                <div class="col40 text-right">
+                    <label>Id</label>
+                </div>
+                <div class="col">
+                    <input type="text" name="id">                    
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col40 text-right">
+                    <label>Name</label>
+                </div>
+                <div class="col">
+                    <input type="text" name="name" class="width300">                    
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col40 text-right">
+                    <label>Departament</label>
+                </div>
+                <div class="col">
+                    <select name="departament" class="width300"></select>
+                </div>
+            </div>
+
+        </section>
+        <footer>
+            2018 &copy; My Company
+        </footer>
+    </div>
+
+    <script src="../../assets/js/app.views.employee.edit.js"></script>
+    <script src="../../assets/js/store.js"></script>
+    <script>
+        new app.views.employee.edit(document.querySelector(".views-employee-edit"));
+    </script>
+</body>
+</html>
