@@ -40,7 +40,7 @@ footer {
     text-align: center;
 }
 
-input {
+input, select {
     padding: .375rem .75rem;
     color: #495057;
     background-color: #fff;
@@ -48,8 +48,12 @@ input {
     border-radius: .25rem;
 }
 
-.width300 {
+input.width300 {
     width: 300px;
+}
+
+select.width300 {
+    width: 326px;
 }
 
 button {

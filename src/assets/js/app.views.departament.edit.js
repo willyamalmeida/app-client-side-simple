@@ -73,21 +73,25 @@ app.views.departament.edit.prototype = {
         this.db.removeItem(Number(this.$elId.value));
     },
 
+    goIndex: function() {
+        window.location = "index.html";
+    },
+
     initEvents: function() {       
         var _this = this;
         
         this.$elSave.addEventListener("click", function() {
             _this.save();
-            window.location = "index.html";
+            _this.goIndex();
         });
 
         this.$elDelete.addEventListener("click", function() {
             _this.delete();
-            window.location = "index.html";
+            _this.goIndex();
         });
 
         this.$elCancel.addEventListener("click", function() {         
-            window.location = "index.html";
+            _this.goIndex();
         });
     }
 }
