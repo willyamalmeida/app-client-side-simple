@@ -48,11 +48,21 @@ app.views.departament.edit.prototype = {
         this.$elDelete.hidden = isNew;
     },
 
-    save: function() {        
+    valid: function(departament) {
+        if (!departament.description) {
+            var msg = "Description is required";
+            alert(msg);
+            throw(msg);
+        }
+    },
+
+    save: function() {           
         var departament = {
             id: Number(this.$elId.value),
             description: this.$elDescription.value
         };
+        
+        this.valid(departament);
 
         this.db.save(departament, function(item) {
             item.description = departament.description;
@@ -68,10 +78,16 @@ app.views.departament.edit.prototype = {
         
         this.$elSave.addEventListener("click", function() {
             _this.save();
+            window.location = "index.html";
         });
 
         this.$elDelete.addEventListener("click", function() {
             _this.delete();
+            window.location = "index.html";
+        });
+
+        this.$elCancel.addEventListener("click", function() {         
+            window.location = "index.html";
         });
     }
 }
