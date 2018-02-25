@@ -4,6 +4,7 @@
   "description": "app simple with html+css+js",
   "scripts": {
     "test": "echo \"No test specified\" && exit 0",
+    "test-jest": "jest",
     "dev": "grunt watch--",
     "build": "rimraf ./dist && grunt",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
@@ -11,17 +12,33 @@
   "keywords": [
     "html",
     "css",
-    "javascript"
+    "javascript",
+    "test",
+    "jest"
   ],
   "author": "Willyam Almeida",
   "license": "MIT",
+  "engines": {
+    "node": ">= 9.3.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage/"
+  },
   "devDependencies": {
     "grunt": "^1.0.2",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-uglify": "^3.3.0",
     "grunt-contrib-watch": "^1.0.0",
+    "jest": "^22.4.2",
     "push-dir": "^0.4.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "selenium-webdriver": "^4.0.0-alpha.1"
   }
 }
