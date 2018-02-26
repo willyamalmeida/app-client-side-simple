@@ -1,17 +1,18 @@
-app = { views: { departament: {} } };
-app.views.departament.edit = function($el) {
+app = { views: { department: {} } };
+
+app.views.department.edit = function($el) {
     if (!$el) {
         throw("Element undefined");
     }
 
     this.$el = $el;
-    this.db = new Store("departaments");
+    this.db = new Store("departments");
 
     this.init();
 };
 
-app.views.departament.edit.prototype = {
-    init: function() {    
+app.views.department.edit.prototype = {
+    init: function() {
         this.$elSave = this.$el.parentElement.querySelector("[name='save']");
         this.$elDelete = this.$el.parentElement.querySelector("[name='delete']");
         this.$elCancel = this.$el.parentElement.querySelector("[name='cancel']");
@@ -28,9 +29,9 @@ app.views.departament.edit.prototype = {
 
     dataFill: function() {
         var props = window.location.search.replace("?", "").split("&");
-        var data = props.reduce(function(acc, x) { 
-            var y = x.split("="); 
-            acc[y[0]] = y[1];             
+        var data = props.reduce(function(acc, x) {
+            var y = x.split("=");
+            acc[y[0]] = y[1];
             return acc; }, {});
 
         this.$elId.value = data.id;
@@ -48,24 +49,24 @@ app.views.departament.edit.prototype = {
         this.$elDelete.hidden = isNew;
     },
 
-    valid: function(departament) {
-        if (!departament.description) {
+    valid: function(department) {
+        if (!department.description) {
             var msg = "Description is required";
             alert(msg);
             throw(msg);
         }
     },
 
-    save: function() {           
-        var departament = {
+    save: function() {
+        var department = {
             id: Number(this.$elId.value),
             description: this.$elDescription.value
         };
-        
-        this.valid(departament);
 
-        this.db.save(departament, function(item) {
-            item.description = departament.description;
+        this.valid(department);
+
+        this.db.save(department, function(item) {
+            item.description = department.description;
         });
     },
 
@@ -77,9 +78,9 @@ app.views.departament.edit.prototype = {
         window.location = "index.html";
     },
 
-    initEvents: function() {       
+    initEvents: function() {
         var _this = this;
-        
+
         this.$elSave.addEventListener("click", function() {
             _this.save();
             _this.goIndex();
@@ -90,7 +91,7 @@ app.views.departament.edit.prototype = {
             _this.goIndex();
         });
 
-        this.$elCancel.addEventListener("click", function() {         
+        this.$elCancel.addEventListener("click", function() {
             _this.goIndex();
         });
     }

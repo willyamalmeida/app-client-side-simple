@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>app-client-side-simple - departament</title>
+    <title>app-client-side-simple - department</title>
     <link rel="stylesheet" href="../../assets/css/site.css" >
     <link rel="stylesheet" href="../../assets/css/painel.css" >
 </head>
-<body>    
+<body>
     <div class="container">
         <header>
-            <a href="../../index.html">My Company</a>
-        </header>    
-        <section class="painel views-departament-index">     
+            <a href="../../index.html" name="homepage">My Company</a>
+        </header>
+        <section class="painel views-department-index">
             <nav>
                 <a href="edit.html?id=0">New</a>
             </nav>
 
-            <div class="title-main">Departaments</div>
-            
+            <div class="title-main">Departments</div>
+
             <div class="row">
                 <div class="col">
                     <input type="text" name="filter">
@@ -36,11 +36,11 @@
                             <th>Description</th>
                         </tr>
                     </thead>
-                    <tbody>                        
+                    <tbody>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th colspan="2">Total:&nbsp;<span>0</span></th>                            
+                            <th colspan="2">Total:&nbsp;<span>0</span></th>
                         </tr>
                     </tfoot>
                 </table>
@@ -52,10 +52,10 @@
         </footer>
     </div>
 
-    <script src="../../assets/js/app.views.departament.index.js"></script>
+    <script src="../../assets/js/app.views.department.index.js"></script>
     <script src="../../assets/js/store.js"></script>
     <script>
-        new app.views.departament.index(document.querySelector(".views-departament-index"));
+        new app.views.department.index(document.querySelector(".views-department-index"));
     </script>
 </body>
 </html>

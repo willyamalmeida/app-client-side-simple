@@ -1,4 +1,4 @@
-Store = function (key) {
+const Store = function (key) {
     if (!key) {
         throw ("key undefined");
     }
@@ -108,3 +108,5 @@ Store.prototype = {
         this.saveLocalStorage(items);
     }
 };
+
+export default Store;

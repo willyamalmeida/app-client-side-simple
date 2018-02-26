@@ -11,16 +11,16 @@ app.views.employee.edit = function($el) {
 };
 
 app.views.employee.edit.prototype = {
-    init: function() {    
+    init: function() {
         this.$elSave = this.$el.parentElement.querySelector("[name='save']");
         this.$elDelete = this.$el.parentElement.querySelector("[name='delete']");
         this.$elCancel = this.$el.parentElement.querySelector("[name='cancel']");
 
         this.$elId = this.$el.parentElement.querySelector("[name='id']");
         this.$elName = this.$el.parentElement.querySelector("[name='name']");
-        this.$elDepartament = this.$el.parentElement.querySelector("[name='departament']");
+        this.$elDepartment = this.$el.parentElement.querySelector("[name='department']");
 
-        this.setDepartaments();
+        this.setDepartments();
 
         if(location.search){
             this.dataFill();
@@ -29,26 +29,26 @@ app.views.employee.edit.prototype = {
         this.initEvents();
     },
 
-    setDepartaments: function() {
-        var departaments = new Store("departaments").get();
-        var options = departaments.reduce(function(opts, departament){
+    setDepartments: function() {
+        var departments = new Store("departments").get();
+        var options = departments.reduce(function(opts, department){
             opts = opts
               .concat("<option value='")
-              .concat(departament.id)
+              .concat(department.id)
               .concat("'>")
-              .concat(departament.description)
+              .concat(department.description)
               .concat("</option>");
             return opts;
         }, "");
 
-        this.$elDepartament.innerHTML = "<option value='0'></option>".concat(options);
+        this.$elDepartment.innerHTML = "<option value='0'></option>".concat(options);
     },
 
     dataFill: function() {
         var props = window.location.search.replace("?", "").split("&");
-        var data = props.reduce(function(acc, x) { 
-            var y = x.split("="); 
-            acc[y[0]] = y[1];             
+        var data = props.reduce(function(acc, x) {
+            var y = x.split("=");
+            acc[y[0]] = y[1];
             return acc; }, {});
 
         this.$elId.value = data.id;
@@ -58,9 +58,9 @@ app.views.employee.edit.prototype = {
         if(!isNew) {
             var item = this.db.getItemById(data.id);
             this.$elName.value = item.name;
-            
-            var elOption = this.$elDepartament.parentElement.querySelector("option[value='" + item.departament.id + "']");
-            
+
+            var elOption = this.$elDepartment.parentElement.querySelector("option[value='" + item.department.id + "']");
+
             if(elOption){
                 elOption.selected = true;
             }
@@ -79,29 +79,29 @@ app.views.employee.edit.prototype = {
             throw(msg);
         }
 
-        if (!employee.departament) {
-            var msg = "Departament is required";
+        if (!employee.department) {
+            var msg = "Department is required";
             alert(msg);
             throw(msg);
         }
     },
 
-    save: function() {           
+    save: function() {
         var employee = {
             id: Number(this.$elId.value),
             name: this.$elName.value,
-            departament: {}     
+            department: {}
         };
 
-        var idDepartament = this.$elDepartament.selectedOptions[0].value;
-        var departament = new Store("departaments").getItemById(idDepartament);
-        employee.departament = departament;
-        
+        var idDepartment = this.$elDepartment.selectedOptions[0].value;
+        var department = new Store("departments").getItemById(idDepartment);
+        employee.department = department;
+
         this.valid(employee);
 
         this.db.save(employee, function(item) {
             item.name = employee.name;
-            item.departament = employee.departament;
+            item.department = employee.department;
         });
     },
 
@@ -113,9 +113,9 @@ app.views.employee.edit.prototype = {
         window.location = "index.html";
     },
 
-    initEvents: function() {       
+    initEvents: function() {
         var _this = this;
-        
+
         this.$elSave.addEventListener("click", function() {
             _this.save();
             _this.goIndex();
@@ -126,7 +126,7 @@ app.views.employee.edit.prototype = {
             _this.goIndex();
         });
 
-        this.$elCancel.addEventListener("click", function() {         
+        this.$elCancel.addEventListener("click", function() {
             _this.goIndex();
         });
     }
